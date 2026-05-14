@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEBSITE BUG WA BY ROBIH</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    
+    
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background-image:
+linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+url('gambar.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+    .container{
+  width:90%;
+  max-width:400px;
+  background:rgba(0,0,0,0.55);
+  border:2px solid #00aaff;
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 25px #00aaff;
+  animation:glow 2s infinite alternate;
+}
+
+    @keyframes glow{
+      from{
+        box-shadow:0 0 15px #00aaff;
+      }
+      to{
+        box-shadow:0 0 35px #00ddff;
+      }
+    }
+
+    h1{
+      color:#00d9ff;
+      font-size:24px;
+      margin-bottom:20px;
+      text-shadow:0 0 10px #00d9ff;
+    }
+
+    p{
+      color:white;
+      margin-bottom:10px;
+      font-size:14px;
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      border:none;
+      border-radius:10px;
+      outline:none;
+      background:#111827;
+      color:white;
+      font-size:15px;
+      border:1px solid #00aaff;
+    }
+
+    button{
+      width:100%;
+      margin-top:20px;
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(45deg,#00aaff,#0066ff);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 0 15px #00aaff;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 25px #00d9ff;
+    }
+
+    .result{
+      margin-top:20px;
+      color:#00ff88;
+      font-weight:bold;
+      display:none;
+      animation:fade 1s;
+      text-shadow:0 0 10px #00ff88;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .loading{
+      color:#00d9ff;
+      margin-top:15px;
+      display:none;
+      font-size:14px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="container" id="loginPage">
+  <h1>LOGIN WEBSITE ROBIH 🔒</h1>
+
+  <p>Masukkan User & Password</p>
+
+  <input type="text" id="username" placeholder="Masukkan User">
+  <input type="password" id="password" placeholder="Masukkan Password">
+
+  <button onclick="login()">MASUK ⚡</button>
+</div>
+
+
+<!-- WEBSITE UTAMA -->
+<div class="container" id="mainPage" style="display:none;">
+  <h1>WEBSITE BUG WA PALING GANAS BY ROBIH ⚡🔥</h1>
+
+  <p>MASUKKAN NOMOR WHATSAPP</p>
+  <p>CONTOH: 62XXXXXXX</p>
+
+  <input type="text" id="nomor" placeholder="Masukkan nomor WhatsApp">
+
+  <select id="menu">
+    <option value="">PILIH MENU BUG</option>
+    <option>BUG PALING GANAS AUTO C1 BY ROBIH</option>
+    <option>BUG HP AUTO MATI SENDIRI</option>
+    <option>BUG HP AUTO KE RISET OTOMATIS</option>
+  </select>
+
+  <button onclick="prosesBug()">KIRIM BUG ⚡</button>
+
+  <div class="loading" id="loading">
+    Sedang memproses bug...
+  </div>
+
+  <div class="result" id="result">
+    BUG TELAH BERHASIL DI KIRIM ✅
+  </div>
+</div>
+
+
+<script>
+function login(){
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if(user === "robih" && pass === "12345"){
+        document.getElementById("loginPage").style.display="none";
+        document.getElementById("mainPage").style.display="block";
+    } else {
+        alert("User / Password salah!");
+    }
+}
+
+function prosesBug(){
+    const nomor = document.getElementById("nomor").value;
+    const menu = document.getElementById("menu").value;
+
+    if(nomor === "" || menu === ""){
+      alert("Harap isi nomor dan pilih menu bug!");
+      return;
+    }
+
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("result").style.display = "none";
+
+    setTimeout(() => {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("result").style.display = "block";
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
